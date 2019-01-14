@@ -5,11 +5,49 @@
 		<title>CIT 261 | Portafolio | Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</title>
 	</head>
 
-	<script>
-
-	</script>
-
 	<body>
+		<a href="../index.html">Back Button</a>
 		<h1>Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</h1>
+
+		<section>
+			<h2>Example 1</h2>
+			<p>Display a list of Juventus Players using an Array.
+			Using a "for" to loop through the array and conditional statement to avoid printing empty rows.</p>
+			<div id="div-players"></div>
+		</section>
+		<script>
+			/* EXAMPLE 1 */
+			var players = [
+				"Perin",
+				"De Sciglio",
+				"Chiellini",
+				"Bonucci",
+				"Alex Sandro",
+				"Pjanic",
+				"",
+				"Khedira",
+				"Matuidi",
+				"Bernardeschi",
+				"Dybala",
+				"",
+				"Ronaldo"
+			];
+
+			function showPlayers(players){
+				var output = "<ul>";
+				for (var i = 0; i < players.length; i++) { 
+				  if(players[i]!=""){
+				  	output += players[i] + "<br>";
+				  }
+				}
+
+				output += "<ul>";
+
+				document.getElementById('div-players').innerHTML = output;
+			}
+
+			 showPlayers(players);
+		</script>
+
 	</body>
 </html>
