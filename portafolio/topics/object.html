@@ -3,10 +3,91 @@
 
 	<head>
 		<title>CIT 261 | Portafolio | Object Creation Functions, Inheritance, Properties, Methods, Instantiation</title>
+		<style>
+
+			pre {
+				    border: 0px;
+				    background: #CCC;
+				    padding: 10px;
+				    color: green;
+				}
+
+			#newPersonPassword{
+				font-weight: bold;
+				color: red;
+			}	
+
+		</style>
+
 	</head>
 
 	<body>
 		<a href="../index.html">Back Button</a>
-		<h1>Object Creation Functions, Inheritance, Properties, Methods, Instantiation</h1>
+		<h1>JS - Object Creation Functions, Inheritance, Properties, Methods, Instantiation</h1>
+		<p>
+			To show my understanding of objects, I'll example where we have two type of objects user and student. Where student will inherit properties and functionalities from the parent user. In this exercise I'll use console.log to display the status of the objects while working on it.
+		</p>
+
+		<h2>Define an object Person</h2>
+		<code>
+			<pre>
+				var person = {<br>
+					  firstname: "John",<br>
+					  surname: "Doe",<br>
+					  username: "jdoe",<br>
+					  password: "m7teghqbis",<br>
+					  email: "jdoe@test.tt", <br>
+				};<br><br>
+				console.log("Person Object",person);<br>
+			</pre>
+		</code>
+
+		<script>
+			var person = {
+				  firstname: "John",
+				  surname: "Doe",
+				  username: "jdoe",
+				  password: "dlasdharu4$$%",
+				  email: "jdoe@test.tt", 
+			};
+			console.log("Person Object",person);
+		</script>
+
+		<h2>Change password value - with a random value</h2>
+		<p>Display the new password, 10 characters value in console</p>
+		<code>
+			<pre>
+				person.password = Math.random().toString(36).slice(-10);<br>
+				console.log("New Password",person.password);<br>
+				New Password:<span id="newPersonPassword"></span><br>
+			</pre>
+		</code>
+		<script>
+			person.password = Math.random().toString(36).slice(-10);
+			console.log("New Password",person.password);
+			document.getElementById("newPersonPassword").innerHTML = person.password;
+		</script>
+
+		<h2>Print Person Object info</h2>
+		<p>
+			Loop through the person properties and display them on div with id="printPerson"<br>
+			Mask the password value
+		</p>
+		<div>
+			<h4>Result</h4>
+			<div id="printPerson"></div>
+		</div>
+
+		<script>
+			var printPerson = "<div>";
+			for(property in person){
+				if(property!="password"){
+					printPerson += property+": "+person[property]+"<br>";
+				}else{ printPerson += property+": *********<br>"; }
+			}
+			printPerson += "</div>";
+
+			document.getElementById("printPerson").innerHTML = printPerson;
+		</script>
 	</body>
 </html>
